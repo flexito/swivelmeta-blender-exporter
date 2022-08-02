@@ -41,7 +41,7 @@ def draw_component(panel, context, obj, row, component_item):
 
         if not component_class.is_dep_only():
             remove_component_operator = top_row.operator(
-                "wm.remove_hubs_component",
+                "wm.remove_swivelmeta_component",
                 text="",
                 icon="X"
             )
@@ -57,7 +57,7 @@ def draw_component(panel, context, obj, row, component_item):
         top_row.label(
             text=f"Unknown component '{component_name}'", icon="ERROR")
         remove_component_operator = top_row.operator(
-            "wm.remove_hubs_component",
+            "wm.remove_swivelmeta_component",
             text="",
             icon="X"
         )
@@ -74,22 +74,22 @@ def draw_components_list(panel, context):
         return
 
     add_component_operator = layout.operator(
-        "wm.add_hubs_component",
+        "wm.add_swivelmeta_component",
         text="Add Component",
         icon="ADD"
     )
     add_component_operator.panel_type = panel.bl_context
 
-    for component_item in obj.hubs_component_list.items:
+    for component_item in obj.swivelmeta_component_list.items:
         row = layout.row()
         draw_component(panel, context, obj, row, component_item)
 
     layout.separator()
 
 
-class HubsObjectPanel(bpy.types.Panel):
-    bl_label = "Hubs"
-    bl_idname = "OBJECT_PT_hubs"
+class SwivelMetaObjectPanel(bpy.types.Panel):
+    bl_label = "SwivelMeta"
+    bl_idname = "OBJECT_PT_swivelmeta"
     bl_space_type = 'PROPERTIES'
     bl_region_type = 'WINDOW'
     bl_context = "object"
@@ -98,9 +98,9 @@ class HubsObjectPanel(bpy.types.Panel):
         draw_components_list(self, context)
 
 
-class HubsScenePanel(bpy.types.Panel):
-    bl_label = 'Hubs'
-    bl_idname = "SCENE_PT_hubs"
+class SwivelMetaScenePanel(bpy.types.Panel):
+    bl_label = 'SwivelMeta'
+    bl_idname = "SCENE_PT_swivelmeta"
     bl_space_type = 'PROPERTIES'
     bl_region_type = 'WINDOW'
     bl_context = 'scene'
@@ -112,9 +112,9 @@ class HubsScenePanel(bpy.types.Panel):
         draw_components_list(self, context)
 
 
-class HubsMaterialPanel(bpy.types.Panel):
-    bl_label = 'Hubs'
-    bl_idname = "MATERIAL_PT_hubs"
+class SwivelMetaMaterialPanel(bpy.types.Panel):
+    bl_label = 'SwivelMeta'
+    bl_idname = "MATERIAL_PT_swivelmeta"
     bl_space_type = 'PROPERTIES'
     bl_region_type = 'WINDOW'
     bl_context = 'material'
@@ -123,9 +123,9 @@ class HubsMaterialPanel(bpy.types.Panel):
         draw_components_list(self, context)
 
 
-class HubsBonePanel(bpy.types.Panel):
-    bl_label = "Hubs"
-    bl_idname = "BONE_PT_hubs"
+class SwivelMetaBonePanel(bpy.types.Panel):
+    bl_label = "SwivelMeta"
+    bl_idname = "BONE_PT_swivelmeta"
     bl_space_type = 'PROPERTIES'
     bl_region_type = 'WINDOW'
     bl_context = "bone"
@@ -135,14 +135,14 @@ class HubsBonePanel(bpy.types.Panel):
 
 
 def register():
-    bpy.utils.register_class(HubsObjectPanel)
-    bpy.utils.register_class(HubsScenePanel)
-    bpy.utils.register_class(HubsMaterialPanel)
-    bpy.utils.register_class(HubsBonePanel)
+    bpy.utils.register_class(SwivelMetaObjectPanel)
+    bpy.utils.register_class(SwivelMetaScenePanel)
+    bpy.utils.register_class(SwivelMetaMaterialPanel)
+    bpy.utils.register_class(SwivelMetaBonePanel)
 
 
 def unregister():
-    bpy.utils.unregister_class(HubsObjectPanel)
-    bpy.utils.unregister_class(HubsScenePanel)
-    bpy.utils.unregister_class(HubsMaterialPanel)
-    bpy.utils.unregister_class(HubsBonePanel)
+    bpy.utils.unregister_class(SwivelMetaObjectPanel)
+    bpy.utils.unregister_class(SwivelMetaScenePanel)
+    bpy.utils.unregister_class(SwivelMetaMaterialPanel)
+    bpy.utils.unregister_class(SwivelMetaBonePanel)

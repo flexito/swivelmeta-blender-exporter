@@ -3,12 +3,12 @@ from ..io.utils import gather_properties
 from .types import Category, PanelType, NodeType
 
 
-class HubsComponent(PropertyGroup):
+class SwivelMetaComponent(PropertyGroup):
     _definition = {
-        # The name that will be used in the GLTF file MOZ_hubs_components object when exporting the component.
+        # The name that will be used in the GLTF file SM_components object when exporting the component.
         'name': 'template',
         # Name to be used in the panels, if not set the component name will be used
-        'display_name': 'Hubs Component Template',
+        'display_name': 'SwivelMeta Component Template',
         # Category that is shown in the "Add Component" menu
         'category': Category.MISC,
         # Node type to where the component will be registered
@@ -30,7 +30,7 @@ class HubsComponent(PropertyGroup):
     @classmethod
     def get_id(cls):
         name = cls.__get_definition('name', cls.__name__)
-        return 'hubs_component_' + name.replace('-', '_')
+        return 'swivelmeta_component_' + name.replace('-', '_')
 
     @classmethod
     def get_name(cls):
@@ -83,9 +83,9 @@ class HubsComponent(PropertyGroup):
         return not cls.get_category()
 
     def __init__(self):
-        if type(self) is HubsComponent:
+        if type(self) is SwivelMetaComponent:
             raise Exception(
-                'HubsComponent is an abstract class and cannot be instantiated directly')
+                'SwivelMetaComponent is an abstract class and cannot be instantiated directly')
 
     def draw(self, context, layout, panel_type):
         '''Draw method to be called by the panel. The base class method will print all the component properties'''

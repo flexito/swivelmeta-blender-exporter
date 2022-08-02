@@ -26,12 +26,12 @@ def bone_matrix_world(ob, bone, scaleOverride=None):
 
 
 class CustomModelGizmo(Gizmo):
-    """Generic gizmo to render all Hubs custom gizmos"""
+    """Generic gizmo to render all SwivelMeta custom gizmos"""
     bl_idname = "GIZMO_GT_hba_gizmo"
 
     __slots__ = (
         "object",
-        "hubs_gizmo_shape",
+        "swivelmeta_gizmo_shape",
         "custom_shape",
     )
 
@@ -42,9 +42,9 @@ class CustomModelGizmo(Gizmo):
         self.draw_custom_shape(self.custom_shape, select_id=select_id)
 
     def setup(self):
-        if hasattr(self, "hubs_gizmo_shape"):
+        if hasattr(self, "swivelmeta_gizmo_shape"):
             self.custom_shape = self.new_custom_shape(
-                'TRIS', self.hubs_gizmo_shape)
+                'TRIS', self.swivelmeta_gizmo_shape)
 
     def invoke(self, context, event):
         if hasattr(self, "object") and context.mode == 'OBJECT':
@@ -59,15 +59,15 @@ class CustomModelGizmo(Gizmo):
         return {'RUNNING_MODAL'}
 
 
-class HubsGizmoGroup(GizmoGroup):
+class SwivelMetaGizmoGroup(GizmoGroup):
     bl_idname = "OBJECT_GGT_hba_gizmo_group"
-    bl_label = "Hubs gizmo group"
+    bl_label = "SwivelMeta gizmo group"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'WINDOW'
     bl_options = {'3D', 'PERSISTENT', 'SHOW_MODAL_ALL', 'SELECT'}
 
     def add_gizmo(self, ob, host, host_type):
-        for component_item in host.hubs_component_list.items:
+        for component_item in host.swivelmeta_component_list.items:
             component_name = component_item.name
             component_class = get_component_by_name(component_name)
             if not component_class:
@@ -176,9 +176,9 @@ def depsgraph_update_post(dummy):
         objects_count = len(bpy.data.objects)
     elif bpy.context.mode == 'EDIT_ARMATURE':
         for ob in bpy.context.objects_in_mode:
-            if len(ob.data.edit_bones) != ob.data.hubs_old_bones_length:
+            if len(ob.data.edit_bones) != ob.data.swivelmeta_old_bones_length:
                 update_gizmos()
-            ob.data.hubs_old_bones_length = len(ob.data.edit_bones)
+            ob.data.swivelmeta_old_bones_length = len(ob.data.edit_bones)
 
 
 @persistent
@@ -220,7 +220,7 @@ def register_gizmo_system():
 def register_gizmos():
     try:
         bpy.utils.register_class(CustomModelGizmo)
-        bpy.utils.register_class(HubsGizmoGroup)
+        bpy.utils.register_class(SwivelMetaGizmoGroup)
     except:
         pass
 
@@ -247,7 +247,7 @@ def unregister_gizmo_system():
 
 def unregister_gizmos():
     try:
-        bpy.utils.unregister_class(HubsGizmoGroup)
+        bpy.utils.unregister_class(SwivelMetaGizmoGroup)
         bpy.utils.unregister_class(CustomModelGizmo)
     except:
         pass
@@ -262,7 +262,7 @@ def register_functions():
         if not load_post in bpy.app.handlers.load_post:
             bpy.app.handlers.load_post.append(load_post)
 
-        bpy.types.Armature.hubs_old_bones_length = IntProperty(options={'HIDDEN', 'SKIP_SAVE'})
+        bpy.types.Armature.swivelmeta_old_bones_length = IntProperty(options={'HIDDEN', 'SKIP_SAVE'})
 
         register_gizmo_system()
 
@@ -273,7 +273,7 @@ def register_functions():
 
         unregister_gizmo_system()
 
-        del bpy.types.Armature.hubs_old_bones_length
+        del bpy.types.Armature.swivelmeta_old_bones_length
 
     return register, unregister
 

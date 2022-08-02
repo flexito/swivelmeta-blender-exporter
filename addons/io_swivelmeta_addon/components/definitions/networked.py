@@ -1,4 +1,4 @@
-from ..hubs_component import HubsComponent
+from ..swivelmeta_component import SwivelMetaComponent
 from bpy.props import StringProperty
 from ..types import PanelType, NodeType
 import uuid
@@ -6,7 +6,7 @@ from ..utils import add_component
 import bpy
 
 
-class Networked(HubsComponent):
+class Networked(SwivelMetaComponent):
     _definition = {
         'name': 'networked',
         'display_name': 'Networked',
@@ -27,8 +27,8 @@ class Networked(HubsComponent):
 
 def migrate_networked(component_name):
     def migrate_data(ob):
-        if component_name in ob.hubs_component_list.items:
-            if Networked.get_name() not in ob.hubs_component_list.items:
+        if component_name in ob.swivelmeta_component_list.items:
+            if Networked.get_name() not in ob.swivelmeta_component_list.items:
                 add_component(ob, Networked.get_name())
 
     for ob in bpy.data.objects:

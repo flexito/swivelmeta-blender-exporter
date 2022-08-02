@@ -7,7 +7,7 @@ V_S1 = Vector((1.0, 1.0, 1.0))
 
 
 def add_component(obj, component_name):
-    component_item = obj.hubs_component_list.items.add()
+    component_item = obj.swivelmeta_component_list.items.add()
     component_item.name = component_name
 
     component_class = get_component_by_name(component_name)
@@ -17,7 +17,7 @@ def add_component(obj, component_name):
         for dep_name in component_class.get_deps():
             dep_class = get_component_by_name(dep_name)
             if dep_class:
-                dep_exists = obj.hubs_component_list.items.find(dep_name) > -1
+                dep_exists = obj.swivelmeta_component_list.items.find(dep_name) > -1
                 if not dep_exists:
                     add_component(obj, dep_name)
             else:
@@ -26,7 +26,7 @@ def add_component(obj, component_name):
 
 
 def remove_component(obj, component_name):
-    component_items = obj.hubs_component_list.items
+    component_items = obj.swivelmeta_component_list.items
     component_items.remove(component_items.find(component_name))
     component_class = get_component_by_name(component_name)
 
@@ -46,12 +46,12 @@ def remove_component(obj, component_name):
 
 
 def has_component(obj, component_name):
-    component_items = obj.hubs_component_list.items
+    component_items = obj.swivelmeta_component_list.items
     return component_name in component_items
 
 
 def has_components(obj, component_names):
-    component_items = obj.hubs_component_list.items
+    component_items = obj.swivelmeta_component_list.items
     for name in component_names:
         if name not in component_items:
             return False
@@ -61,7 +61,7 @@ def has_components(obj, component_names):
 def is_dep_required(obj, component_name, dep_name):
     '''Checks if there is any other component that requires this dependency'''
     is_required = False
-    items = obj.hubs_component_list.items
+    items = obj.swivelmeta_component_list.items
     for cmp in items:
         if cmp.name != component_name:
             dep_component_class = get_component_by_name(

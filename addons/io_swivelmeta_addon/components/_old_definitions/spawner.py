@@ -32,7 +32,7 @@ class Spawner(HubsComponent):
     def migrate(cls, version):
         if version < (1, 0, 0):
             def migrate_data(ob):
-                if cls.get_name() in ob.hubs_component_list.items:
+                if cls.get_name() in ob.swivelmeta_component_list.items:
                     ob.hubs_component_spawner.applyGravity = ob.hubs_component_spawner[
                         'mediaOptions']['applyGravity']
 

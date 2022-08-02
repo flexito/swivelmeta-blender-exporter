@@ -46,11 +46,11 @@ class MozLightmapNode(Node):
         return "MOZ_lightmap"
 
 
-def register():
-    bpy.utils.register_class(MozLightmapNode)
-    nodeitems_utils.register_node_categories("MOZ_NODES", node_categories)
+# def register():
+    # bpy.utils.register_class(MozLightmapNode)
+    # nodeitems_utils.register_node_categories("MOZ_NODES", node_categories)
 
 
-def unregister():
-    bpy.utils.unregister_class(MozLightmapNode)
-    nodeitems_utils.unregister_node_categories("MOZ_NODES")
+# def unregister():
+    # bpy.utils.unregister_class(MozLightmapNode)
+    # nodeitems_utils.unregister_node_categories("MOZ_NODES")

@@ -11,7 +11,7 @@ def get_addon_pref(context):
     return context.preferences.addons[addon_package].preferences
 
 
-class HubsPreferences(AddonPreferences):
+class SwivelMetaPreferences(AddonPreferences):
     bl_idname = __package__
 
     row_length: IntProperty(
@@ -25,7 +25,7 @@ class HubsPreferences(AddonPreferences):
         name="Temporary files path",
         description="Path where temporary files will be stored.",
         subtype="DIR_PATH",
-        default="//generated_cubemaps/"
+        default="//swivelmeta-files/"
     )
 
     def draw(self, context):
@@ -37,8 +37,8 @@ class HubsPreferences(AddonPreferences):
 
 
 def register():
-    bpy.utils.register_class(HubsPreferences)
+    bpy.utils.register_class(SwivelMetaPreferences)
 
 
 def unregister():
-    bpy.utils.unregister_class(HubsPreferences)
+    bpy.utils.unregister_class(SwivelMetaPreferences)

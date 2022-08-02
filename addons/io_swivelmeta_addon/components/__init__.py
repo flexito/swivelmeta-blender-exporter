@@ -7,6 +7,7 @@ def register():
     components_registry.register()
     operators.register()
     panels.register()
+    print("Register Components")
 
 
 def unregister():
@@ -15,3 +16,4 @@ def unregister():
     components_registry.unregister()
     gizmos.unregister()
     handlers.unregister()
+    print("Unregister Components")

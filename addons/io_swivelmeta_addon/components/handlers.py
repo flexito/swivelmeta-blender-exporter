@@ -8,13 +8,13 @@ def migrate_components(dummy):
     components_registry = get_components_registry()
     for _, component_class in components_registry.items():
         component_class.migrate(tuple(
-            bpy.context.scene.HubsComponentsExtensionProperties.version))
+            bpy.context.scene.SwivelMetaComponentsExtensionProperties.version))
 
 
 @persistent
 def version_update(dummy):
     from .. import (bl_info)
-    bpy.context.scene.HubsComponentsExtensionProperties.version = bl_info['version']
+    bpy.context.scene.SwivelMetaComponentsExtensionProperties.version = bl_info['version']
 
 
 def register():

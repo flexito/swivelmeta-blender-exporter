@@ -9,9 +9,9 @@ from .components_registry import get_components_registry, get_components_icons
 from ..preferences import get_addon_pref
 
 
-class AddHubsComponent(Operator):
-    bl_idname = "wm.add_hubs_component"
-    bl_label = "Add Hubs Component"
+class AddSwivelMetaComponent(Operator):
+    bl_idname = "wm.add_swivelmeta_component"
+    bl_label = "Add SwivelMeta Component"
     bl_property = "component_name"
     bl_options = {'REGISTER', 'UNDO'}
 
@@ -121,7 +121,7 @@ class AddHubsComponent(Operator):
                                         text=component_display_name, icon_value=components_icons[icon].icon_id)
                                 else:
                                     op = column.operator(
-                                        AddHubsComponent.bl_idname, text=component_display_name, icon_value=components_icons[icon].icon_id)
+                                        AddSwivelMetaComponent.bl_idname, text=component_display_name, icon_value=components_icons[icon].icon_id)
                                     op.component_name = component_name
                                     op.panel_type = panel_type
                             else:
@@ -130,7 +130,7 @@ class AddHubsComponent(Operator):
                                         text=component_display_name, icon=icon)
                                 else:
                                     op = column.operator(
-                                        AddHubsComponent.bl_idname, text=component_display_name, icon=icon)
+                                        AddSwivelMetaComponent.bl_idname, text=component_display_name, icon=icon)
                                     op.component_name = component_name
                                     op.panel_type = panel_type
                         else:
@@ -138,7 +138,7 @@ class AddHubsComponent(Operator):
                                 op = column.label(text=component_display_name)
                             else:
                                 op = column.operator(
-                                    AddHubsComponent.bl_idname, text=component_display_name, icon='ADD')
+                                    AddSwivelMetaComponent.bl_idname, text=component_display_name, icon='ADD')
                                 op.component_name = component_name
                                 op.panel_type = panel_type
 
@@ -163,9 +163,9 @@ class AddHubsComponent(Operator):
         return {'RUNNING_MODAL'}
 
 
-class RemoveHubsComponent(Operator):
-    bl_idname = "wm.remove_hubs_component"
-    bl_label = "Remove Hubs Component"
+class RemoveSwivelMetaComponent(Operator):
+    bl_idname = "wm.remove_swivelmeta_component"
+    bl_label = "Remove SwivelMeta Component"
     bl_options = {'REGISTER', 'UNDO'}
 
     panel_type: StringProperty(name="panel_type")
@@ -181,10 +181,10 @@ class RemoveHubsComponent(Operator):
 
 
 def register():
-    bpy.utils.register_class(AddHubsComponent)
-    bpy.utils.register_class(RemoveHubsComponent)
+    bpy.utils.register_class(AddSwivelMetaComponent)
+    bpy.utils.register_class(RemoveSwivelMetaComponent)
 
 
 def unregister():
-    bpy.utils.unregister_class(AddHubsComponent)
-    bpy.utils.unregister_class(RemoveHubsComponent)
+    bpy.utils.unregister_class(AddSwivelMetaComponent)
+    bpy.utils.unregister_class(RemoveSwivelMetaComponent)

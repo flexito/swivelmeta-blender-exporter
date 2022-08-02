@@ -60,14 +60,14 @@ def set_resolution(self, value):
 def get_probes():
     probes = []
     for ob in bpy.context.view_layer.objects:
-        component_list = ob.hubs_component_list
+        component_list = ob.swivelmeta_component_list
 
-        registered_hubs_components = get_components_registry()
+        registered_swivelmeta_components = get_components_registry()
 
         if component_list.items:
             for component_item in component_list.items:
                 component_name = component_item.name
-                if component_name in registered_hubs_components:
+                if component_name in registered_swivelmeta_components:
                     if component_name == 'reflection-probe':
                         probes.append(ob)
 

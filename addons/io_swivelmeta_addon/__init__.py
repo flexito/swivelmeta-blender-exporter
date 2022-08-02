@@ -2,14 +2,14 @@ from .io import gltf_exporter
 from . import (nodes, components)
 from . import preferences
 bl_info = {
-    "name": "Hubs Blender Addon",
-    "author": "Mozilla Hubs",
-    "description": "Tools for developing GLTF assets for Mozilla Hubs",
+    "name": "SwivelMeta Blender Addon",
+    "author": "SwivelMeta",
+    "description": "Tools for developing GLTF assets for SwivelMeta",
     "blender": (3, 1, 2),
     "version": (1, 0, 0),
     "location": "",
-    "wiki_url": "https://github.com/MozillaReality/hubs-blender-exporter",
-    "tracker_url": "https://github.com/MozillaReality/hubs-blender-exporter/issues",
+    "wiki_url": "https://swivelmeta.io",
+    "tracker_url": "https://swivelmeta.io",
     "support": "COMMUNITY",
     "warning": "",
     "category": "Generic"
@@ -19,15 +19,17 @@ bl_info = {
 def register():
     preferences.register()
     gltf_exporter.register()
-    nodes.register()
+    # nodes.register()
     components.register()
+    print("Register SwivelMeta Addon")
 
 
 def unregister():
     components.unregister()
-    nodes.unregister()
+    # nodes.unregister()
     gltf_exporter.unregister()
     preferences.unregister()
+    print("Unregister SwivelMeta Addon")
 
 
 # called by gltf-blender-io after it has loaded

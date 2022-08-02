@@ -22,7 +22,7 @@ class MediaFrameGizmo(Gizmo):
     )
 
     __slots__ = (
-        "hubs_gizmo_shape",
+        "swivelmeta_gizmo_shape",
         "custom_shape",
     )
 
@@ -42,9 +42,9 @@ class MediaFrameGizmo(Gizmo):
         self.draw_custom_shape(self.custom_shape, select_id=select_id)
 
     def setup(self):
-        if hasattr(self, "hubs_gizmo_shape"):
+        if hasattr(self, "swivelmeta_gizmo_shape"):
             self.custom_shape = self.new_custom_shape(
-                'TRIS', self.hubs_gizmo_shape)
+                'TRIS', self.swivelmeta_gizmo_shape)
 
 
 class MediaFrame(HubsComponent):
@@ -101,7 +101,7 @@ class MediaFrame(HubsComponent):
     @classmethod
     def create_gizmo(cls, ob, gizmo_group):
         gizmo = gizmo_group.gizmos.new(MediaFrameGizmo.bl_idname)
-        setattr(gizmo, "hubs_gizmo_shape", box.SHAPE)
+        setattr(gizmo, "swivelmeta_gizmo_shape", box.SHAPE)
         gizmo.setup()
         gizmo.use_draw_scale = False
         gizmo.use_draw_modal = False
@@ -123,7 +123,7 @@ class MediaFrame(HubsComponent):
 
         if version < (1, 0, 0):
             def migrate_data(ob):
-                if cls.get_name() in ob.hubs_component_list.items:
+                if cls.get_name() in ob.swivelmeta_component_list.items:
                     bounds = ob.hubs_component_media_frame.bounds.copy()
                     bounds = Vector((bounds.x, bounds.z, bounds.y))
                     ob.hubs_component_media_frame.bounds = bounds

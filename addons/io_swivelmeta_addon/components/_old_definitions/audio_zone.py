@@ -39,7 +39,7 @@ class AudioZone(HubsComponent):
     def create_gizmo(cls, ob, gizmo_group):
         gizmo = gizmo_group.gizmos.new(CustomModelGizmo.bl_idname)
         gizmo.object = ob
-        setattr(gizmo, "hubs_gizmo_shape", box.SHAPE)
+        setattr(gizmo, "swivelmeta_gizmo_shape", box.SHAPE)
         gizmo.setup()
         gizmo.use_draw_scale = False
         gizmo.use_draw_modal = False

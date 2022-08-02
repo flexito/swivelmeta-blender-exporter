@@ -10,17 +10,17 @@ import os
 from os import listdir
 from os.path import join, isfile, isdir, dirname, realpath
 
-from .hubs_component import HubsComponent
+from .swivelmeta_component import SwivelMetaComponent
 
 
-class HubsComponentName(PropertyGroup):
+class SwivelMetaComponentName(PropertyGroup):
     # For backwards compatibility reasons this attribute is called "name" but it actually points to the component id
     name: StringProperty(name="name")
     expanded: BoolProperty(name="expanded", default=True)
 
 
-class HubsComponentList(PropertyGroup):
-    items: CollectionProperty(type=HubsComponentName)
+class SwivelMetaComponentList(PropertyGroup):
+    items: CollectionProperty(type=SwivelMetaComponentName)
 
 
 def get_components_in_dir(dir):
@@ -101,7 +101,7 @@ def load_components_registry():
     __components_registry = {}
     for module in get_component_definitions():
         for _, member in inspect.getmembers(module):
-            if inspect.isclass(member) and issubclass(member, HubsComponent) and member != HubsComponent:
+            if inspect.isclass(member) and issubclass(member, SwivelMetaComponent) and member != SwivelMetaComponent:
                 register_component(member)
                 __components_registry[member.get_name()] = member
 
@@ -122,12 +122,12 @@ def load_icons():
     for icon in icons:
         pcoll.load(icon, os.path.join(icons_dir, icon), 'IMAGE')
         print("Loading icon: " + icon)
-    __component_icons["hubs"] = pcoll
+    __component_icons["swivelmeta"] = pcoll
 
 
 def unload_icons():
     global __component_icons
-    __component_icons["hubs"].close()
+    __component_icons["swivelmeta"].close()
     del __component_icons
 
 
@@ -142,7 +142,7 @@ def get_components_registry():
 
 def get_components_icons():
     global __component_icons
-    return __component_icons["hubs"]
+    return __component_icons["swivelmeta"]
 
 
 def get_component_by_name(component_name):
@@ -154,30 +154,30 @@ def register():
     load_icons()
     load_components_registry()
 
-    bpy.utils.register_class(HubsComponentName)
-    bpy.utils.register_class(HubsComponentList)
+    bpy.utils.register_class(SwivelMetaComponentName)
+    bpy.utils.register_class(SwivelMetaComponentList)
 
-    bpy.types.Object.hubs_component_list = PointerProperty(
-        type=HubsComponentList)
-    bpy.types.Scene.hubs_component_list = PointerProperty(
-        type=HubsComponentList)
-    bpy.types.Material.hubs_component_list = PointerProperty(
-        type=HubsComponentList)
-    bpy.types.Bone.hubs_component_list = PointerProperty(
-        type=HubsComponentList)
-    bpy.types.EditBone.hubs_component_list = PointerProperty(
-        type=HubsComponentList)
+    bpy.types.Object.swivelmeta_component_list = PointerProperty(
+        type=SwivelMetaComponentList)
+    bpy.types.Scene.swivelmeta_component_list = PointerProperty(
+        type=SwivelMetaComponentList)
+    bpy.types.Material.swivelmeta_component_list = PointerProperty(
+        type=SwivelMetaComponentList)
+    bpy.types.Bone.swivelmeta_component_list = PointerProperty(
+        type=SwivelMetaComponentList)
+    bpy.types.EditBone.swivelmeta_component_list = PointerProperty(
+        type=SwivelMetaComponentList)
 
 
 def unregister():
-    del bpy.types.Object.hubs_component_list
-    del bpy.types.Scene.hubs_component_list
-    del bpy.types.Material.hubs_component_list
-    del bpy.types.Bone.hubs_component_list
-    del bpy.types.EditBone.hubs_component_list
+    del bpy.types.Object.swivelmeta_component_list
+    del bpy.types.Scene.swivelmeta_component_list
+    del bpy.types.Material.swivelmeta_component_list
+    del bpy.types.Bone.swivelmeta_component_list
+    del bpy.types.EditBone.swivelmeta_component_list
 
-    bpy.utils.unregister_class(HubsComponentName)
-    bpy.utils.unregister_class(HubsComponentList)
+    bpy.utils.unregister_class(SwivelMetaComponentName)
+    bpy.utils.unregister_class(SwivelMetaComponentList)
 
     unload_components_registry()
     unload_icons()
