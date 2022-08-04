@@ -9,7 +9,7 @@ class Teleport(SwivelMetaComponent):
         'display_name': 'Teleport',
         'category': Category.NAVIGATION,
         'node_type': NodeType.NODE,
-        'panel_type': [PanelType.OBJECT, PanelType.BONE],
+        'panel_type': [PanelType.OBJECT],
         'icon': 'LINKED'
     }
 

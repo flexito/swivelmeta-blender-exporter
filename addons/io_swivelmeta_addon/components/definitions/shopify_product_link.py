@@ -9,7 +9,7 @@ class ShopifyProductLink(SwivelMetaComponent):
         'display_name': 'Shopify Product Link',
         'category': Category.ECOMMERCE,
         'node_type': NodeType.NODE,
-        'panel_type': [PanelType.OBJECT, PanelType.BONE],
+        'panel_type': [PanelType.OBJECT],
         'icon': 'LINKED'
     }
 

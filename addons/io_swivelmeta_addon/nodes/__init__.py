@@ -1,9 +1,9 @@
 from . import (lightmap)
 
 
-# def register():
-#     lightmap.register()
+def register():
+    lightmap.register()
 
 
-# def unregister():
-#     lightmap.unregister()
+def unregister():
+    lightmap.unregister()

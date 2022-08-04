@@ -12,12 +12,12 @@ from io_scene_gltf2.blender.exp.gltf2_blender_image import ExportImage
 from io_scene_gltf2.blender.exp.gltf2_blender_gather_cache import cached
 from io_scene_gltf2.blender.exp import gltf2_blender_export_keys
 from typing import Optional
-from ..nodes.lightmap import MozLightmapNode
+from ..nodes.lightmap import SMLightmapNode
 
 # gather_texture/image with HDR support via MOZ_texture_rgbe
 
 
-class HubsImageData(ImageData):
+class SMImageData(ImageData):
     @property
     def file_extension(self):
         if self._mime_type == "image/vnd.radiance":
@@ -25,10 +25,10 @@ class HubsImageData(ImageData):
         return super().file_extension
 
 
-class HubsExportImage(ExportImage):
+class SMExportImage(ExportImage):
     @staticmethod
     def from_blender_image(image: bpy.types.Image):
-        export_image = HubsExportImage()
+        export_image = SMExportImage()
         for chan in range(image.channels):
             export_image.fill_image(image, dst_chan=chan, src_chan=chan)
         return export_image
@@ -70,10 +70,10 @@ def gather_image(blender_image, export_settings):
     else:
         mime_type = "image/jpeg"
 
-    data = HubsExportImage.from_blender_image(blender_image).encode(mime_type)
+    data = SMExportImage.from_blender_image(blender_image).encode(mime_type)
 
     if export_settings[gltf2_blender_export_keys.FORMAT] == 'GLTF_SEPARATE':
-        uri = HubsImageData(data=data, mime_type=mime_type, name=name)
+        uri = SMImageData(data=data, mime_type=mime_type, name=name)
         buffer_view = None
     else:
         uri = None
@@ -104,7 +104,7 @@ def gather_texture(blender_image, export_settings):
     is_hdr = blender_image and blender_image.file_format == "HDR"
 
     if is_hdr:
-        ext_name = "MOZ_texture_rgbe"
+        ext_name = "SM_texture_rgbe"
         texture_extensions[ext_name] = Extension(
             name=ext_name,
             extension={
@@ -305,7 +305,7 @@ def gather_color_property(export_settings, object, component, property_name):
 def gather_lightmap_texture_info(blender_material, export_settings):
     nodes = blender_material.node_tree.nodes
     lightmap_node = next(
-        (n for n in nodes if isinstance(n, MozLightmapNode)), None)
+        (n for n in nodes if isinstance(n, SMLightmapNode)), None)
 
     if not lightmap_node:
         return

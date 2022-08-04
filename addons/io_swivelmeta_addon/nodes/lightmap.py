@@ -5,23 +5,23 @@ from nodeitems_utils import NodeCategory, NodeItem
 from bpy.types import Node
 
 
-class MozCategory(NodeCategory):
+class SMCategory(NodeCategory):
     @classmethod
     def poll(cls, context):
         return context.space_data.tree_type == 'ShaderNodeTree'
 
 
 node_categories = [
-    MozCategory("MOZ_NODES", "Hubs", items=[
-        NodeItem("moz_lightmap.node")
+    SMCategory("SM_NODES", "Hubs", items=[
+        NodeItem("sm_lightmap.node")
     ]),
 ]
 
 
-class MozLightmapNode(Node):
-    """MOZ_lightmap settings node"""
-    bl_idname = 'moz_lightmap.node'
-    bl_label = 'MOZ_lightmap settings'
+class SMLightmapNode(Node):
+    """SM_lightmap settings node"""
+    bl_idname = 'sm_lightmap.node'
+    bl_label = 'SM_lightmap settings'
     bl_icon = 'LIGHT'
     bl_width_min = 216.3
     bl_width_max = 330.0
@@ -43,14 +43,14 @@ class MozLightmapNode(Node):
         layout.prop(self, "intensity")
 
     def draw_label(self):
-        return "MOZ_lightmap"
+        return "SM_lightmap"
 
 
-# def register():
-    # bpy.utils.register_class(MozLightmapNode)
-    # nodeitems_utils.register_node_categories("MOZ_NODES", node_categories)
+def register():
+    bpy.utils.register_class(SMLightmapNode)
+    nodeitems_utils.register_node_categories("SM_NODES", node_categories)
 
 
-# def unregister():
-    # bpy.utils.unregister_class(MozLightmapNode)
-    # nodeitems_utils.unregister_node_categories("MOZ_NODES")
+def unregister():
+    bpy.utils.unregister_class(SMLightmapNode)
+    nodeitems_utils.unregister_node_categories("SM_NODES")

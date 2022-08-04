@@ -19,14 +19,14 @@ bl_info = {
 def register():
     preferences.register()
     gltf_exporter.register()
-    # nodes.register()
+    nodes.register()
     components.register()
     print("Register SwivelMeta Addon")
 
 
 def unregister():
     components.unregister()
-    # nodes.unregister()
+    nodes.unregister()
     gltf_exporter.unregister()
     preferences.unregister()
     print("Unregister SwivelMeta Addon")

@@ -9,7 +9,7 @@ class AvatarAnimationTrigger(SwivelMetaComponent):
         'display_name': 'Avatar Animation Trigger',
         'category': Category.AVATAR,
         'node_type': NodeType.NODE,
-        'panel_type': [PanelType.OBJECT, PanelType.BONE],
+        'panel_type': [PanelType.OBJECT],
         'icon': 'LINKED'
     }
 
