@@ -1,11 +1,11 @@
-from bpy.props import FloatProperty, BoolProperty
+from bpy.props import FloatProperty, BoolProperty, StringProperty
 from ..swivelmeta_component import SwivelMetaComponent
 from ..types import Category, PanelType, NodeType
 
 
 class ShopifyProductModel(SwivelMetaComponent):
     _definition = {
-        'name': 'shopify_product_model',
+        'name': 'shopify-product-model',
         'display_name': 'Shopify Product Model',
         'category': Category.ECOMMERCE,
         'node_type': NodeType.NODE,
@@ -13,15 +13,33 @@ class ShopifyProductModel(SwivelMetaComponent):
         'icon': 'SCENE_DATA'
     }
 
-    resizeToFit: BoolProperty(
-        name="Resize To Fit",
-        description="Scale model to fit within given radius",
+    centerModel: BoolProperty(
+        name="Center model",
+        description="Center the product model based on its bounding box",
         default=True
     )
 
-    radius: FloatProperty(
-        name="Bounding Radius",
-        description="Maximum radius of model imported model",
+    alignWithBase: BoolProperty(
+        name="Align with base",
+        description="Reposition the product model vertically so that it sits on top of the display",
+        default=True
+    )
+
+    scaleToBounds: BoolProperty(
+        name="Scale to bounds",
+        description="Scale model up or down to fit given dimension",
+        default=True
+    )
+
+    dimension: FloatProperty(
+        name="Dimension",
+        description="If scale to bounds is checked, determines the size a model should be",
         default=1.0,
         min=0.01
+    )
+
+    url: StringProperty(
+        name="Default model URL",
+        description="URL for placeholder glb/gltf (optional)",
+        default=""
     )

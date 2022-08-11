@@ -5,12 +5,12 @@ from ..types import Category, PanelType, NodeType
 
 class AvatarAnimationTrigger(SwivelMetaComponent):
     _definition = {
-        'name': 'avatar_animation_trigger',
+        'name': 'avatar-animation-trigger',
         'display_name': 'Avatar Animation Trigger',
         'category': Category.AVATAR,
         'node_type': NodeType.NODE,
         'panel_type': [PanelType.OBJECT],
-        'icon': 'LINKED'
+        'icon': 'ARMATURE_DATA'
     }
 
     action: StringProperty(name="Action Prefix", description="Plays all actions with this prefix when avatar enters given radius",

@@ -10,13 +10,13 @@ class Teleport(SwivelMetaComponent):
         'category': Category.NAVIGATION,
         'node_type': NodeType.NODE,
         'panel_type': [PanelType.OBJECT],
-        'icon': 'LINKED'
+        'icon': 'PARTICLES'
     }
 
     destination: FloatVectorProperty(name="Destination",
-                               description="Destination",
-                               size=3,
-                               subtype="XYZ",
-                               default=[0, 0, 0
-                               ])
+        description="Destination",
+        size=3,
+        subtype="XYZ",
+        default=[0, 0, 0]
+    )
 
