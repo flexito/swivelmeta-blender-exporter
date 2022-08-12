@@ -13,19 +13,19 @@ class ShopifyProductModel(SwivelMetaComponent):
         'icon': 'MATERIAL'
     }
 
-    primaryColor: StringProperty(
+    primaryColorKey: StringProperty(
         name="Primary color",
         description="Name of material to be replaced with vendor primary color (optional)",
         default=""
     )
 
-    secondaryColor: StringProperty(
+    secondaryColorKey: StringProperty(
         name="Secondary color",
         description="Name of material to be replaced with vendor secondary color (optional)",
         default=""
     )
 
-    tertiaryColor: StringProperty(
+    tertiaryColorKey: StringProperty(
         name="Tertiary color",
         description="Name of material to be replaced with vendor tertiary color (optional)",
         default=""
