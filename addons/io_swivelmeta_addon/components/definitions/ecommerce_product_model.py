@@ -3,10 +3,10 @@ from ..swivelmeta_component import SwivelMetaComponent
 from ..types import Category, PanelType, NodeType
 
 
-class ShopifyProductModel(SwivelMetaComponent):
+class EcommerceProductModel(SwivelMetaComponent):
     _definition = {
-        'name': 'shopify-product-model',
-        'display_name': 'Shopify Product Model',
+        'name': 'ecommerce-product-model',
+        'display_name': 'E-Commerce Product Model',
         'category': Category.ECOMMERCE,
         'node_type': NodeType.NODE,
         'panel_type': [PanelType.OBJECT],

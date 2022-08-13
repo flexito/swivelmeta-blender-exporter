@@ -26,3 +26,4 @@ class Category(Enum):
     MEDIA = 'Media'
     NAVIGATION = 'Navigation'
     ECOMMERCE = 'E-Commerce'
+    MATERIAL = 'Materials'
