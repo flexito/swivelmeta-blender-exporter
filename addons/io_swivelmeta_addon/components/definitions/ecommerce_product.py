@@ -1,4 +1,4 @@
-from bpy.props import FloatProperty, BoolProperty, StringProperty
+from bpy.props import FloatProperty, IntProperty
 from ..swivelmeta_component import SwivelMetaComponent
 from ..types import Category, PanelType, NodeType
 
@@ -17,5 +17,12 @@ class EcommerceProductModel(SwivelMetaComponent):
         name="Display Radius",
         description="This sets the size of the product and image carousel; should roughly match the radius of your display",
         default=1.0,
-        min=0.01
+        min=0.25
+    )
+
+    displayIndex: IntProperty(
+        name="Display Index",
+        description="Determines order in which to fill the displays (i.e. if only one product is available, the display with the lowest Display Index will be used.",
+        default=1,
+        min=1
     )
