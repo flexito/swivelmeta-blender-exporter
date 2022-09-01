@@ -3,7 +3,7 @@ from ..swivelmeta_component import SwivelMetaComponent
 from ..types import Category, PanelType, NodeType
 
 
-class EcommerceProductModel(SwivelMetaComponent):
+class EcommerceProduct(SwivelMetaComponent):
     _definition = {
         'name': 'ecommerce-product',
         'display_name': 'E-Commerce Product',
