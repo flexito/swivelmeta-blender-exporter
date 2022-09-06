@@ -27,3 +27,4 @@ class Category(Enum):
     NAVIGATION = 'Navigation'
     ECOMMERCE = 'E-Commerce'
     MATERIAL = 'Materials'
+    EXPERIMENTAL = 'Experimental'
