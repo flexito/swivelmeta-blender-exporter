@@ -14,22 +14,22 @@ class DynamicMedia(SwivelMetaComponent):
         'icon': 'IMAGE_DATA'
     }
 
+    id: StringProperty(
+        name="ID",
+        description="Unique identifier for use in the SwivelMeta Mixer app. Should only contain alphanumeric characters",
+        default=""
+    )
+
     name: StringProperty(
         name="Name",
-        description="Name of media element as shown in SwivelMeta Builder app",
+        description="Name of media element as shown in SwivelMeta Mixer app",
         default=""
     )
 
     description: StringProperty(
         name="Description",
-        description="Description of media element as shown in SwivelMeta Builder app",
+        description="Description of media element as shown in SwivelMeta Mixer app",
         default=""
-    )
-
-    id: StringProperty(
-        name="ID",
-        description="Component ID",
-        default=str(uuid.uuid4().hex)
     )
 
     src: StringProperty(

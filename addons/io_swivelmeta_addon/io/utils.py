@@ -238,7 +238,7 @@ def gather_material_property(export_settings, blender_object, target, property_n
     if blender_material:
         material = gltf2_blender_gather_materials.gather_material(
             blender_material, export_settings)
-        return material
+        return material.name
     else:
         return None
 

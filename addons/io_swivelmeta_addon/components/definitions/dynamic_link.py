@@ -13,6 +13,12 @@ class DynamicLink(SwivelMetaComponent):
         'icon': 'LINKED'
     }
 
+    id: StringProperty(
+        name="ID",
+        description="Unique identifier for use in the SwivelMeta Mixer app. Should only contain alphanumeric characters",
+        default=""
+    )
+
     name: StringProperty(
         name="Name",
         description="Name of link as shown in SwivelMeta Builder app",
