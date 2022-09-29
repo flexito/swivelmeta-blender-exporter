@@ -1,4 +1,5 @@
 from bpy.props import StringProperty
+from bpy.props import BoolProperty
 from ..swivelmeta_component import SwivelMetaComponent
 from ..types import Category, PanelType, NodeType
 
@@ -35,4 +36,10 @@ class DynamicLink(SwivelMetaComponent):
         name="Link URL",
         description="Default URL the link should point to",
         default="https://"
+    )
+
+    showlinkbutton: BoolProperty(
+        name="Show Link Button",
+        description="Toggle to show Link Button",
+        default=True
     )
