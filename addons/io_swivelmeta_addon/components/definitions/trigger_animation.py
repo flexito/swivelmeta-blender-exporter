@@ -4,10 +4,10 @@ from ..swivelmeta_component import SwivelMetaComponent
 from ..types import Category, PanelType, NodeType
 
 
-class AnimationTrigger(SwivelMetaComponent):
+class TriggerAnimation(SwivelMetaComponent):
     _definition = {
-        'name': 'animation-trigger',
-        'display_name': 'Animation Trigger',
+        'name': 'trigger-animation',
+        'display_name': 'Trigger Animation',
         'category': Category.ANIMATION,
         'node_type': NodeType.NODE,
         'panel_type': [PanelType.OBJECT],
@@ -24,23 +24,4 @@ class AnimationTrigger(SwivelMetaComponent):
         name="Animation Track Name",
         description="Name of track to be animated",
         default=""
-    )
-
-    clickable: BoolProperty(
-        name="Clickable",
-        description="Teleports when the user clicks this object",
-        default=True
-    )
-
-    proximity: BoolProperty(
-        name="Proximity Trigger",
-        description="Teleports when the user gets close to this object",
-        default=True
-    )
-
-    proximityDistance: FloatProperty(
-        name="Proximity Distance",
-        description="Distance from teleporter before teleport initiated",
-        default=1.0,
-        min=0.0
     )

@@ -34,12 +34,12 @@ class TriggerFlipFlopAnimation(SwivelMetaComponent):
 
     proximity: BoolProperty(
         name="Proximity Trigger",
-        description="Teleports when the user gets close to this object",
+        description="Triggers animation when the user gets close to this object's origin",
         default=False)
 
     proximityDistance: FloatProperty(
         name="Proximity Distance",
-        description="Avatar distance from Trigger Object before animation is triggered",
+        description="Distance from object's origin before animation is triggered",
         default=1.0,
         min=0.0
     )
