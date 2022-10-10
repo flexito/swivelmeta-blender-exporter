@@ -22,6 +22,6 @@ class TriggerAnimation(SwivelMetaComponent):
 
     track: StringProperty(
         name="Animation Track Name",
-        description="Name of track to be animated",
+        description="Name of track to be played",
         default=""
     )
