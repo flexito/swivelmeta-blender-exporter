@@ -2,6 +2,7 @@ from bpy.props import PointerProperty, StringProperty, BoolProperty, FloatProper
 from bpy.types import Object
 from ..swivelmeta_component import SwivelMetaComponent
 from ..types import Category, PanelType, NodeType
+from .networked import migrate_networked
 
 
 class TriggerFlipFlopAnimation(SwivelMetaComponent):
@@ -13,6 +14,11 @@ class TriggerFlipFlopAnimation(SwivelMetaComponent):
         'panel_type': [PanelType.OBJECT],
         'icon': 'TRACKING'
     }
+
+    networked: BoolProperty(
+        name="Networked",
+        description="If true, this animation will be played for all users",
+        default=False)
 
     targetObject: PointerProperty(
         name="Target Object",
@@ -43,3 +49,7 @@ class TriggerFlipFlopAnimation(SwivelMetaComponent):
         default=1.0,
         min=0.0
     )
+
+    @classmethod
+    def migrate(cls, version):
+        migrate_networked(cls.get_name())

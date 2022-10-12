@@ -2,6 +2,7 @@ from bpy.props import PointerProperty, StringProperty, BoolProperty, FloatProper
 from bpy.types import Object
 from ..swivelmeta_component import SwivelMetaComponent
 from ..types import Category, PanelType, NodeType
+from .networked import migrate_networked
 
 
 class TriggerAnimation(SwivelMetaComponent):
@@ -11,8 +12,14 @@ class TriggerAnimation(SwivelMetaComponent):
         'category': Category.ANIMATION,
         'node_type': NodeType.NODE,
         'panel_type': [PanelType.OBJECT],
+        'deps': ['networked'],
         'icon': 'PIVOT_BOUNDBOX'
     }
+
+    networked: BoolProperty(
+        name="Networked",
+        description="If true, this animation will be played for all users",
+        default=False)
 
     animatedObject: PointerProperty(
         name="Animated Object",
@@ -25,3 +32,7 @@ class TriggerAnimation(SwivelMetaComponent):
         description="Name of track to be played",
         default=""
     )
+
+    @classmethod
+    def migrate(cls, version):
+        migrate_networked(cls.get_name())
