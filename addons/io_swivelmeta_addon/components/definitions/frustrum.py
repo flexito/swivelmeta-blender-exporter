@@ -1,12 +1,12 @@
 from bpy.props import BoolProperty
-from ..hubs_component import HubsComponent
+from ..swivelmeta_component import SwivelMetaComponent
 from ..types import Category, PanelType, NodeType
 
 
-class Frustrum(HubsComponent):
+class Frustrum(SwivelMetaComponent):
     _definition = {
         'name': 'frustrum',
-        'display_name': 'Frustrum',
+        'display_name': 'Frustum',
         'category': Category.OBJECT,
         'node_type': NodeType.NODE,
         'panel_type': [PanelType.OBJECT],
