@@ -9,7 +9,7 @@ class TriggerFlipFlopAnimation(SwivelMetaComponent):
     _definition = {
         'name': 'trigger-flipflop-animation',
         'display_name': 'Trigger Flip-Flop Animation',
-        'category': Category.ANIMATION,
+        'category': Category.TRIGGERS,
         'node_type': NodeType.NODE,
         'panel_type': [PanelType.OBJECT],
         'icon': 'TRACKING'

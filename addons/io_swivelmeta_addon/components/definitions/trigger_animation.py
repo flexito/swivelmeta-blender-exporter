@@ -9,7 +9,7 @@ class TriggerAnimation(SwivelMetaComponent):
     _definition = {
         'name': 'trigger-animation',
         'display_name': 'Trigger Animation',
-        'category': Category.ANIMATION,
+        'category': Category.TRIGGERS,
         'node_type': NodeType.NODE,
         'panel_type': [PanelType.OBJECT],
         'deps': ['networked'],
