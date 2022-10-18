@@ -1,5 +1,6 @@
-from bpy.props import StringProperty
-from bpy.props import BoolProperty
+import bpy
+import bpy.utils.previews
+from bpy.props import StringProperty, BoolProperty, EnumProperty
 from ..swivelmeta_component import SwivelMetaComponent
 from ..types import Category, PanelType, NodeType
 
@@ -38,8 +39,16 @@ class DynamicLink(SwivelMetaComponent):
         default="https://"
     )
 
-    showlinkbutton: BoolProperty(
+    showLinkButton: BoolProperty(
         name="Show Link Button",
         description="Toggle to show Link Button",
         default=True
     )
+
+    # swivelLinkButtonType: EnumProperty(
+    #     name="Link Button Type",
+    #     description="Limit what type of media this frame will capture",
+    #     items=[("always", "Show static link", "Link button always visible."),
+    #            ("onhover", "Show on hover", "Link button only visible when hovering over source mesh.")],
+    #     default="always"
+    # )
