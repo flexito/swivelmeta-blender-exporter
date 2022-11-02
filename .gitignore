@@ -4,7 +4,7 @@ __pycache__
 io_scene_gltf2
 
 .vscode**
-.github/**
+.github**
 *.gitmodules**
 blender_autocomplete**
 
