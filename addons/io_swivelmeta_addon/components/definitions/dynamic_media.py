@@ -31,9 +31,3 @@ class DynamicMedia(SwivelMetaComponent):
         description="Description of media element as shown in SwivelMeta Mixer app",
         default=""
     )
-
-    src: StringProperty(
-        name="Media Source",
-        description="Default media source URL",
-        default="https://"
-    )
