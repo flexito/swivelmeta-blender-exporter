@@ -1,4 +1,4 @@
-from bpy.props import StringProperty, PointerProperty, EnumProperty, FloatProperty
+from bpy.props import StringProperty, PointerProperty, EnumProperty, FloatProperty, BoolProperty
 from bpy.types import Object
 from ..swivelmeta_component import SwivelMetaComponent
 from ..types import Category, PanelType, NodeType
@@ -25,6 +25,11 @@ class TriggerMedia(SwivelMetaComponent):
         description="Object to hold video element",
         type=Object
     )
+
+    loop: BoolProperty(
+        name="Loop",
+        description="Sets whether media should loop",
+        default=True)
 
     type: EnumProperty(
         name="Trigger Type",
