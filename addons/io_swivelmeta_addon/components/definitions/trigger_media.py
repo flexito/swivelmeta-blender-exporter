@@ -14,22 +14,11 @@ class TriggerMedia(SwivelMetaComponent):
         'icon': 'PLAY'
     }
 
-    src: StringProperty(
-        name="Source URL",
-        description="Source URL for video",
-        default=""
-    )
-
     targetObject: PointerProperty(
         name="Target Object",
         description="Object to hold video element",
         type=Object
     )
-
-    loop: BoolProperty(
-        name="Loop",
-        description="Sets whether media should loop",
-        default=True)
 
     type: EnumProperty(
         name="Trigger Type",
