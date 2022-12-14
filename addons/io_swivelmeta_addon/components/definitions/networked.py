@@ -17,12 +17,16 @@ class Networked(SwivelMetaComponent):
     id: StringProperty(
         name="Network ID",
         description="Network ID",
-        default=str(uuid.uuid4()).upper()
+        default=str(uuid.uuid1()).upper()
     )
 
     def draw(self, context, layout, panel_type):
         layout.label(text="Network ID:")
         layout.label(text=self.id)
+
+    @classmethod
+    def init(cls, obj):
+        obj.swivelmeta_component_networked.id = str(uuid.uuid4()).upper()
 
 
 def migrate_networked(component_name):

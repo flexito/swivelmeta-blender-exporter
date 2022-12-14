@@ -1,12 +1,12 @@
-from bpy.props import StringProperty
+from bpy.props import StringProperty, BoolProperty, FloatProperty
 from ..swivelmeta_component import SwivelMetaComponent
 from ..types import Category, PanelType, NodeType
 
 
-class DynamicLink(SwivelMetaComponent):
+class DynamicTeleport(SwivelMetaComponent):
     _definition = {
-        'name': 'dynamic-link',
-        'display_name': 'Dynamic Link',
+        'name': 'dynamic-teleport',
+        'display_name': 'Dynamic Teleport',
         'category': Category.DYNAMIC_CONTENT,
         'node_type': NodeType.NODE,
         'panel_type': [PanelType.OBJECT],
@@ -35,4 +35,16 @@ class DynamicLink(SwivelMetaComponent):
         name="Link URL",
         description="Default URL the link should point to",
         default="https://"
+    )
+
+    proximity: BoolProperty(
+        name="Proximity Trigger",
+        description="Teleports when the user gets close to this object's origin",
+        default=False)
+
+    proximityDistance: FloatProperty(
+        name="Proximity Distance",
+        description="Teleport trigger distance",
+        default=1.0,
+        min=0.0
     )
