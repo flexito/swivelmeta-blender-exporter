@@ -8,10 +8,10 @@ class DynamicNavMesh(SwivelMetaComponent):
     _definition = {
         'name': 'dynamic-nav-mesh',
         'display_name': 'Dynamic Nav Mesh',
-        'category': Category.MATERIAL,
+        'category': Category.DYNAMIC_CONTENT,
         'node_type': NodeType.NODE,
         'panel_type': [PanelType.OBJECT],
-        'icon': 'DUPLICATE'
+        'icon': 'FULLSCREEN_ENTER'
     }
 
     sourceObject: PointerProperty(
