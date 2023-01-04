@@ -1,7 +1,8 @@
-from bpy.props import PointerProperty, StringProperty, BoolProperty, EnumProperty, FloatProperty
-from bpy.types import Object
 from ..swivelmeta_component import SwivelMetaComponent
 from ..types import Category, PanelType, NodeType
+from bpy.types import Object
+from bpy.props import PointerProperty, StringProperty, BoolProperty, EnumProperty, FloatProperty
+from .networked import migrate_networked
 
 
 class TriggerAnimation(SwivelMetaComponent):
@@ -57,3 +58,12 @@ class TriggerAnimation(SwivelMetaComponent):
         default=1.0,
         min=0.0
     )
+
+    networked: BoolProperty(
+        name="Networked",
+        description="Whether or not this animation should be experienced by other users",
+        default=True)
+
+    @classmethod
+    def migrate(cls, version):
+        migrate_networked(cls.get_name())
