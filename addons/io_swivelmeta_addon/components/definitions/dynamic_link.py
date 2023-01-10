@@ -7,7 +7,7 @@ class DynamicLink(SwivelMetaComponent):
     _definition = {
         'name': 'dynamic-link',
         'display_name': 'Dynamic Link',
-        'category': Category.DYNAMIC_CONTENT,
+        'category': Category.MIXER,
         'node_type': NodeType.NODE,
         'panel_type': [PanelType.OBJECT],
         'icon': 'LINKED'

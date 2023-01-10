@@ -28,6 +28,6 @@ class Category(Enum):
     ECOMMERCE = 'E-Commerce'
     MATERIAL = 'Materials'
     EXPERIMENTAL = 'Experimental'
-    DYNAMIC_CONTENT = 'Mixer App'
+    MIXER = 'Mixer App'
     TRIGGERS = 'Triggers'
     UTILITIES = 'Utilities'

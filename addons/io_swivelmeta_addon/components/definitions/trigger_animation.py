@@ -1,7 +1,7 @@
+from bpy.props import PointerProperty, StringProperty, BoolProperty, EnumProperty, FloatProperty
+from bpy.types import Object
 from ..swivelmeta_component import SwivelMetaComponent
 from ..types import Category, PanelType, NodeType
-from bpy.types import Object
-from bpy.props import PointerProperty, StringProperty, BoolProperty, EnumProperty, FloatProperty
 from .networked import migrate_networked
 
 
@@ -12,6 +12,7 @@ class TriggerAnimation(SwivelMetaComponent):
         'category': Category.TRIGGERS,
         'node_type': NodeType.NODE,
         'panel_type': [PanelType.OBJECT],
+        'deps': ['networked'],
         'icon': 'PIVOT_BOUNDBOX'
     }
 

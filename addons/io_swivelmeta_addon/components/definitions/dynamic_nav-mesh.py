@@ -8,7 +8,7 @@ class DynamicNavMesh(SwivelMetaComponent):
     _definition = {
         'name': 'dynamic-nav-mesh',
         'display_name': 'Dynamic Nav Mesh',
-        'category': Category.DYNAMIC_CONTENT,
+        'category': Category.NAVIGATION,
         'node_type': NodeType.NODE,
         'panel_type': [PanelType.OBJECT],
         'icon': 'FULLSCREEN_ENTER'

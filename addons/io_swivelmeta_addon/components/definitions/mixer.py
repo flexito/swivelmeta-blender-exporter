@@ -1,17 +1,16 @@
 from bpy.props import StringProperty
 from ..swivelmeta_component import SwivelMetaComponent
 from ..types import Category, PanelType, NodeType
-import uuid
 
 
-class DynamicMedia(SwivelMetaComponent):
+class Mixer(SwivelMetaComponent):
     _definition = {
-        'name': 'dynamic-media',
-        'display_name': 'Dynamic Media',
+        'name': 'mixer',
+        'display_name': 'Mixer',
         'category': Category.MIXER,
         'node_type': NodeType.NODE,
         'panel_type': [PanelType.OBJECT],
-        'icon': 'IMAGE_DATA'
+        'icon': 'UV_SYNC_SELECT'
     }
 
     id: StringProperty(
@@ -22,12 +21,12 @@ class DynamicMedia(SwivelMetaComponent):
 
     name: StringProperty(
         name="Name",
-        description="Name of media element as shown in SwivelMeta Mixer app",
+        description="Name as shown in SwivelMeta Mixer app",
         default=""
     )
 
     description: StringProperty(
         name="Description",
-        description="Description of media element as shown in SwivelMeta Mixer app",
+        description="Description as shown in SwivelMeta Mixer app",
         default=""
     )
