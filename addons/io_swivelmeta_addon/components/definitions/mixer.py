@@ -18,15 +18,3 @@ class Mixer(SwivelMetaComponent):
         description="Unique identifier for use in the SwivelMeta Mixer app. Should only contain alphanumeric characters",
         default=""
     )
-
-    name: StringProperty(
-        name="Name",
-        description="Name as shown in SwivelMeta Mixer app",
-        default=""
-    )
-
-    description: StringProperty(
-        name="Description",
-        description="Description as shown in SwivelMeta Mixer app",
-        default=""
-    )
