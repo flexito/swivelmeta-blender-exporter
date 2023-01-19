@@ -8,7 +8,7 @@ class DynamicMedia(SwivelMetaComponent):
     _definition = {
         'name': 'dynamic-media',
         'display_name': 'Dynamic Media',
-        'category': Category.DYNAMIC_CONTENT,
+        'category': Category.MIXER,
         'node_type': NodeType.NODE,
         'panel_type': [PanelType.OBJECT],
         'icon': 'IMAGE_DATA'
@@ -30,10 +30,4 @@ class DynamicMedia(SwivelMetaComponent):
         name="Description",
         description="Description of media element as shown in SwivelMeta Mixer app",
         default=""
-    )
-
-    src: StringProperty(
-        name="Media Source",
-        description="Default media source URL",
-        default="https://"
     )

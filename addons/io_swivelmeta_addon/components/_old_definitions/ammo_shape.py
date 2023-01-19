@@ -1,5 +1,5 @@
 from bpy.props import FloatProperty, EnumProperty, FloatVectorProperty, BoolProperty
-from ..hubs_component import HubsComponent
+from .. import HubsComponent
 from ..types import Category, PanelType, NodeType
 from ..utils import V_S1
 
