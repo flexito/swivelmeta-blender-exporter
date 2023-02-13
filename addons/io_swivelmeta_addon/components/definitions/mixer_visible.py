@@ -3,10 +3,10 @@ from ..swivelmeta_component import SwivelMetaComponent
 from ..types import Category, PanelType, NodeType
 
 
-class NftDispenser(SwivelMetaComponent):
+class MixerVisible(SwivelMetaComponent):
     _definition = {
-        'name': 'nft-dispenser',  # name of the A-Frame component
-        'display_name': 'Nft Dispenser',  # name displayed in Blender
+        'name': 'mixer-visible',  # name of the A-Frame component
+        'display_name': 'Mixer Visible',  # name displayed in Blender
         'category': Category.EXPERIMENTAL,  # category in Blender
         'node_type': NodeType.NODE,
         # panel in Blender where the component will be displayed
@@ -14,10 +14,3 @@ class NftDispenser(SwivelMetaComponent):
         # icon in Blender that will be displayed next to the component name
         'icon': 'SHADING_SOLID'
     }
-
-    # matches hubs component property
-    # label: StringProperty(
-    #     name="Label",
-    #     description="Test Label",
-    #     default="Bruh"
-    # )
