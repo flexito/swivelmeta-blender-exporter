@@ -1,4 +1,4 @@
-from bpy.props import StringProperty, FloatVectorProperty
+from bpy.props import StringProperty, FloatVectorProperty, BoolProperty
 from ..swivelmeta_component import SwivelMetaComponent
 from ..types import Category, PanelType, NodeType
 from ..utils import toHex
@@ -17,6 +17,17 @@ class MixerColor(SwivelMetaComponent):
             1
         ]
 
+    def update_visible(self, context):
+        self.color = self.color.is_hidden
+
+    def draw(self, context, layout, panel_type):
+        '''Draw method to be called by the panel. The base class method will print all the component properties'''
+        for key in self.__annotations__.keys():
+            if key == "color" and self.hideColorWheel == True:
+                continue  # Skips drawing the color wheel || color property
+            elif not self.bl_rna.properties[key].is_hidden:
+                layout.prop(data=self, property=key)
+
     _definition = {
         'name': 'mixer-color',  # name of the A-Frame component
         'display_name': 'Mixer Color',  # name displayed in Blender
@@ -25,12 +36,12 @@ class MixerColor(SwivelMetaComponent):
         # panel in Blender where the component will be displayed
         'panel_type': [PanelType.OBJECT],
         # icon in Blender that will be displayed next to the component name
-        'icon': 'SHADING_SOLID'
+        'icon': 'COLOR'
     }
 
     color: FloatVectorProperty(
         name="Color",
-        description="Color",
+        description="Updating this value will update the hex color value automatically. Hide the color wheel to only use the hex color value, or to keep from accidentally changing the color",
         subtype='COLOR',
         default=(1.0, 1.0, 1.0, 1.0),
         size=4,
@@ -41,6 +52,13 @@ class MixerColor(SwivelMetaComponent):
 
     hexColor: StringProperty(
         name="Hex Color",
-        description="Hex color value. (e.g. #ff0000 or 0xff0000 or ff0000) are all valid values.",
+        description="Hex color value. (e.g. #ff0000 or 0xff0000 or ff0000) are all valid values",
         default="ffffff",
+    )
+
+    hideColorWheel: BoolProperty(
+        name="Hide Color Wheel?",
+        description="Set to true to hide the color wheel in the UI",
+        default=False,
+        # update=update_visible
     )
