@@ -1,3 +1,4 @@
+from math import pow
 import bpy
 from .components_registry import get_component_by_name
 from .gizmos import update_gizmos
@@ -17,7 +18,8 @@ def add_component(obj, component_name):
         for dep_name in component_class.get_deps():
             dep_class = get_component_by_name(dep_name)
             if dep_class:
-                dep_exists = obj.swivelmeta_component_list.items.find(dep_name) > -1
+                dep_exists = obj.swivelmeta_component_list.items.find(
+                    dep_name) > -1
                 if not dep_exists:
                     add_component(obj, dep_name)
             else:
@@ -105,3 +107,28 @@ def children_recursive(ob):
 def is_gpu_available(context):
     cycles_addon = context.preferences.addons["cycles"]
     return cycles_addon and cycles_addon.preferences.has_active_device()
+
+
+'''
+SwivelMeta Blender Utils
+'''
+
+
+def linear_to_srgb8(c):
+    if c < 0.0031308:
+        srgb = 0.0 if c < 0.0 else c * 12.92
+    else:
+        srgb = 1.055 * pow(c, 1.0 / 2.4) - 0.055
+
+    if srgb > 1:
+        srgb = 1
+
+    return round(255*srgb)
+
+
+def toHex(r, g, b):
+    return "%02x%02x%02x" % (
+        linear_to_srgb8(r),
+        linear_to_srgb8(g),
+        linear_to_srgb8(b),
+    )
