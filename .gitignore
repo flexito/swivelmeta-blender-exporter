@@ -13,3 +13,4 @@ node_modules/
 mochawesome-report
 tests_out/
 generated_cubemaps/
+blender_autocomplete/
