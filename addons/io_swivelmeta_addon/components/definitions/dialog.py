@@ -13,8 +13,14 @@ class Dialog(SwivelMetaComponent):
         'icon': 'ERROR'
     }
 
-    text: StringProperty(
-        name="Text",
-        description="Text to be shown in the dialog",
+    titleText: StringProperty(
+        name="Title Text",
+        description="Title text to be shown in the dialog",
+        default=""
+    )
+
+    bodyText: StringProperty(
+        name="Body Text",
+        description="Body text to be shown in the dialog",
         default=""
     )
