@@ -1,6 +1,6 @@
 from ..swivelmeta_component import SwivelMetaComponent
 from ..types import Category, PanelType, NodeType
-from bpy.props import StringProperty, FloatVectorProperty, FloatProperty
+from bpy.props import StringProperty, FloatVectorProperty, FloatProperty, BoolProperty
 
 
 class Hyperbeam(SwivelMetaComponent):
@@ -18,6 +18,11 @@ class Hyperbeam(SwivelMetaComponent):
         description="Unique ID for presenter",
         default=""
     )
+
+    showUI: BoolProperty(
+        name="Show UI",
+        description="Show full avatar control UI",
+        default=False)
 
     uiLocation: FloatVectorProperty(
         name="UI Location",

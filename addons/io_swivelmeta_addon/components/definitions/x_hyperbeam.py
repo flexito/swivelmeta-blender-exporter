@@ -1,6 +1,6 @@
 from ..swivelmeta_component import SwivelMetaComponent
 from ..types import Category, PanelType, NodeType
-from bpy.props import StringProperty
+from bpy.props import StringProperty, FloatProperty
 
 
 class Hyperbeam(SwivelMetaComponent):
@@ -13,8 +13,9 @@ class Hyperbeam(SwivelMetaComponent):
         'icon': 'RESTRICT_VIEW_OFF'
     }
 
-    embedUrl: StringProperty(
-        name="Embed URL",
-        description="Hyperbeam Embed URL",
-        default=""
-    )
+    refDistance: FloatProperty(
+        name="Ref Distance",
+        description="Audio Reference Distance",
+        default=0.5,
+        min=0.01,
+        max=10.0)
