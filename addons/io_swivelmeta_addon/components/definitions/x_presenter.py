@@ -1,5 +1,6 @@
 from ..swivelmeta_component import SwivelMetaComponent
 from ..types import Category, PanelType, NodeType
+from .networked import migrate_networked
 from bpy.props import StringProperty, FloatVectorProperty, FloatProperty, BoolProperty
 
 
@@ -38,3 +39,7 @@ class Hyperbeam(SwivelMetaComponent):
         default=0.0,
         min=0.0,
         max=360.0)
+
+    @classmethod
+    def migrate(cls, version):
+        migrate_networked(cls.get_name())
