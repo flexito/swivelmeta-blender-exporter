@@ -1,6 +1,6 @@
 from ..swivelmeta_component import SwivelMetaComponent
 from ..types import Category, PanelType, NodeType
-from bpy.props import StringProperty
+from bpy.props import StringProperty, BoolProperty
 from bpy.types import Object
 
 
@@ -18,4 +18,10 @@ class IntraRoomTeleport(SwivelMetaComponent):
         name="Link URL",
         description="Link URL",
         default="https://"
+    )
+
+    newTab: BoolProperty(
+        name="New Tab",
+        description="If true, opens link in new tab. If false, opens the link in this tab.",
+        default=True
     )
