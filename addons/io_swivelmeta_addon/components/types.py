@@ -31,3 +31,4 @@ class Category(Enum):
     MIXER = 'Mixer App'
     TRIGGERS = 'Triggers'
     UTILITIES = 'Utilities'
+    AUTOTOUR = 'Autotour'
