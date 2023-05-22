@@ -60,6 +60,11 @@ class TriggerAnimation(SwivelMetaComponent):
         min=0.0
     )
 
+    playOnce: BoolProperty(
+        name="Play Once",
+        description="If true, plays the open animation once and prevents repeat",
+        default=False)
+
     networked: BoolProperty(
         name="Networked",
         description="Whether or not this animation should be experienced by other users",

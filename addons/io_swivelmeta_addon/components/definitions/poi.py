@@ -57,3 +57,9 @@ class PointOfInterest(SwivelMetaComponent):
         description="If true, requires user to click a button in order to advance",
         default=False
     )
+
+    endAutoTour: BoolProperty(
+        name="End Autotour",
+        description="If true, this POI will stop the autotour completely and prevent it from looping.",
+        default=False
+    )
