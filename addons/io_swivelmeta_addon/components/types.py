@@ -32,3 +32,4 @@ class Category(Enum):
     TRIGGERS = 'Triggers'
     UTILITIES = 'Utilities'
     AUTOTOUR = 'Autotour'
+    APPLICATION = 'Application'

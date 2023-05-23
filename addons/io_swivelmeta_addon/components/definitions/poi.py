@@ -8,7 +8,7 @@ class PointOfInterest(SwivelMetaComponent):
     _definition = {
         'name': 'poi',
         'display_name': 'Point of Interest',
-        'category': Category.AUTOTOUR,
+        'category': Category.NAVIGATION,
         'node_type': NodeType.NODE,
         'panel_type': [PanelType.OBJECT],
         'icon': 'PINNED'

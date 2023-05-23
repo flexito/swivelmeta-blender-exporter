@@ -7,7 +7,7 @@ class Dialog(SwivelMetaComponent):
     _definition = {
         'name': 'dialog',
         'display_name': 'Dialog',
-        'category': Category.MEDIA,
+        'category': Category.APPLICATION,
         'node_type': NodeType.NODE,
         'panel_type': [PanelType.OBJECT],
         'icon': 'ERROR'

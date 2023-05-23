@@ -6,7 +6,7 @@ class AdvancePOI(SwivelMetaComponent):
     _definition = {
         'name': 'advance-poi',
         'display_name': 'Advance POI',
-        'category': Category.AUTOTOUR,
+        'category': Category.NAVIGATION,
         'node_type': NodeType.NODE,
         'panel_type': [PanelType.OBJECT],
         'icon': 'ANIM'

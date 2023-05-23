@@ -8,7 +8,7 @@ class IntraRoomTeleport(SwivelMetaComponent):
     _definition = {
         'name': 'hyperlink',
         'display_name': 'Hyperlink',
-        'category': Category.MEDIA,
+        'category': Category.APPLICATION,
         'node_type': NodeType.NODE,
         'panel_type': [PanelType.OBJECT],
         'icon': 'LIBRARY_DATA_DIRECT'
