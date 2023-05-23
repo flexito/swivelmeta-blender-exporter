@@ -7,7 +7,7 @@ class Hyperbeam(SwivelMetaComponent):
     _definition = {
         'name': 'hyperbeam',
         'display_name': 'Hyperbeam',
-        'category': Category.EXPERIMENTAL,
+        'category': Category.MEDIA,
         'node_type': NodeType.NODE,
         'panel_type': [PanelType.OBJECT],
         'icon': 'RESTRICT_VIEW_OFF'
