@@ -12,3 +12,9 @@ class LiveMix(SwivelMetaComponent):
         'panel_type': [PanelType.OBJECT],
         'icon': 'SHADERFX'
     }
+
+    id: StringProperty(
+        name="Mixer ID",
+        description="Mixer ID for the media to be configured",
+        default=""
+    )
