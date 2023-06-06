@@ -39,3 +39,9 @@ class IntraRoomTeleport(SwivelMetaComponent):
         default=1.0,
         min=0.0
     )
+
+    hideSource: BoolProperty(
+        name="Hide Source",
+        description="If checked, will hide the source media object",
+        default=True
+    )
