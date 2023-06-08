@@ -49,7 +49,7 @@ class PointOfInterest(SwivelMetaComponent):
         name="Speed",
         description="Sets to the speed (meters per second) at which the user travels TO this POI.",
         default=5.0,
-        min=0.0
+        min=0.5
     )
 
     requireAction: BoolProperty(
