@@ -8,7 +8,7 @@ class CallFunction(SwivelMetaComponent):
     _definition = {
         'name': 'call-function',
         'display_name': 'Call Function',
-        'category': Category.NAVIGATION,
+        'category': Category.APPLICATION,
         'node_type': NodeType.NODE,
         'panel_type': [PanelType.OBJECT],
         'icon': 'CONSOLE'

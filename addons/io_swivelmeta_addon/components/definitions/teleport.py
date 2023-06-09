@@ -1,6 +1,6 @@
 from ..swivelmeta_component import SwivelMetaComponent
 from ..types import Category, PanelType, NodeType
-from bpy.props import PointerProperty, EnumProperty, FloatProperty
+from bpy.props import PointerProperty, EnumProperty, FloatProperty, BoolProperty
 from bpy.types import Object
 
 
@@ -25,6 +25,12 @@ class Teleport(SwivelMetaComponent):
         description="Teleport speed in meters/second",
         default=3.0,
         min=0.0
+    )
+
+    easing: BoolProperty(
+        name="Enable easing",
+        description="If checked, movement gradually speeds up and slows down near waypoints",
+        default=True
     )
 
     triggerType: EnumProperty(
