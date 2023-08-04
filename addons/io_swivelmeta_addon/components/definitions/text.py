@@ -15,7 +15,7 @@ class Text(SwivelMetaComponent):
 
     value: StringProperty(
         name="Text",
-        description="The string of text to be rendered. Newlines and repeating whitespace characters are honored.",
+        description="The string of text to be rendered. New lines and repeating whitespace characters are honored.",
         default="Hello world!")
 
     font: StringProperty(
