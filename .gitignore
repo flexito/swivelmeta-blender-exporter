@@ -3,8 +3,14 @@ __pycache__
 .DS_Store
 io_scene_gltf2
 
+.vscode**
+.github**
+*.gitmodules**
+blender_autocomplete**
+
 # Tests
 node_modules/
 mochawesome-report
 tests_out/
 generated_cubemaps/
+blender_autocomplete/
